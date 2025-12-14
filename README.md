@@ -60,12 +60,22 @@ The following log details the execution of project tasks as verified by the proj
 
 ## 5. Visuals
 
-**Video: Real-Time SLAM & Occupancy Grid Generation**
+### Video: Real-Time SLAM & Occupancy Grid Generation**
 https://github.com/user-attachments/assets/c350d9db-5f06-47eb-bbdd-42564ea6c62c
 
 This screen recording demonstrates the custom mapping engine in action.
 * **Grey Area:** Unexplored/Unknown space (Probability = 0.5).
 * **White Area:** Confirmed Free Space (Safety Zone) cleared by the robot's movement.
 * **Black Dots:** Detected Static Obstacles (Walls/Barriers) identified by LiDAR.
+
+### Video 2: Dashboard of  Real time Robot Telemetry
+https://github.com/user-attachments/assets/4f4c90a0-f447-454b-bc85-830d550adaa4
+
+#### Dashboard Components:
+The visualization is divided into four critical quadrants as seen above:
+1.  **Live Map (Top-Left):** Tracks the robot's global position (X, Y) and historical path (Blue Line) relative to the start point.
+2.  **Obstacle Distances (Top-Right):** Distinct lines monitoring the `Front`, `Left`, and `Right` LiDAR vectors to detect incoming walls or debris.
+3.  **Proximity Hazard Level (Bottom-Left):** A dynamic safety graph. The yellow dashed line represents the "Turn Threshold"; if the calculated hazard score (Red Line) crosses this, the robot initiates avoidance maneuvers.
+4.  **Current Logic State (Bottom-Right):** Displays the active state of the robot's decision tree, cycling between **Forward**, **Turning**, **Worker Detected**, and **Emergency!** to provide instant feedback on safety triggers.
 
 *The visualization is generated using the custom `visualize_map` function with vectorised Numpy operations to ensure real-time performance.*
