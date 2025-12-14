@@ -1,2 +1,62 @@
-# Autonomous-Hazardous-Zone-Detection-SLAM
-Source code and documentation for the Autonomous Hazardous Zone detection using SLAM robotics simulation. Contains the Webots world files (.wbt), custom controller logic, and the submission report. Maintained and authored by Miss Diksha Jangam.
+# Autonomous Hazardous Zone Detection Using SLAM
+
+#### **Author/Developer:** Diksha Jangam (Student ID: 2929582)
+#### **Course:** Intelligent Robotics
+#### **Status:** Completed 
+
+## 1. Project Overview
+This project implements an autonomous navigation and safety system for construction site environments using the **Pioneer 3-DX** robot in **Webots**. The system utilizes a custom **SLAM (Simultaneous Localization and Mapping)** engine written in Python to map hazardous zones, differentiate between static obstacles and human workers, and enforce dynamic safety logic.
+
+## 2. System Architecture
+The architecture was designed and implemented end-to-end by Diksha Jangam, encompassing the following core components:
+
+### A. Simulation Environment
+* **World Design:** Custom "construction-site" environment featuring uneven terrain, static barriers, and dynamic worker models to simulate realistic hazards.
+* **Robot Configuration:** Pioneer 3-DX configured with differential-drive kinematics.
+* **Sensor Suite:**
+    * **LiDAR:** Sick LMS 291 (mounted at 0.13m x, 0.24m z) for mapping.
+    * **Vision:** RGB Camera (mounted on front nose) for worker detection.
+    * **Inertial:** IMU (Gyroscope + Accelerometer) for heading correction.
+* **Noise Modelling:** Gaussian noise (0.01m) injected into LiDAR and sensor jitter ($0.005 rad/s$) applied to IMU to test algorithm robustness.
+
+### B. Custom SLAM Implementation
+* **Mapping Engine:** Uses **Bresenham's Line Algorithm** for ray casting and **Log-Odds probabilistic updates** to generate a real-time occupancy grid.
+* **Sensor Fusion:** Combines Wheel Odometry with IMU Gyroscope data to correct heading drift caused by terrain slips.
+* **State Classification:** Real-time distinction between Occupied (Walls), Free (Safe Space), and Unknown areas.
+
+### C. Hazard Detection & Logic
+* **Signatures:**
+    * *Static Obstacle:* LiDAR proximity < 0.6m.
+    * *Human Worker:* Visual detection + LiDAR proximity < 3.0m.
+* **State Machine:** Implemented priority-based logic with hysteresis:
+    * *Worker Wait:* 5-second latch to prevent decision flickering.
+    * *U-Turn:* 2-second commitment timer for navigation stability.
+
+---
+
+## 3. Contribution Log & Work Breakdown
+The following log details the execution of project tasks as verified by the project commit history and source code authorship.
+
+| Module | Task Description | Assigned To | Implemented By |
+| :--- | :--- | :--- | :--- |
+| **Env Setup** | Webots installation, World Creation, Robot Model | Diksha | **Diksha**  |
+| **Sensors** | Sensor Selection, Mounting, Noise Calibration | Diksha | **Diksha**  |
+| **SLAM Core** | Odometry, Mapping Algorithm, Occupancy Grid | Diksha | **Diksha**  |
+| **Fusion** | IMU + Odometry Data Fusion (Drift Handling) | Shared | **Diksha**  |
+| **Safety Logic** | Hazard Signatures (Worker vs Wall) | Smrithi* | **Diksha**  |
+| **Detection** | Visual Detection Integration & State Machine | Smrithi* | **Diksha**  |
+| **Docs** | Final Report, Documentation, & Visualization | Shared | **Diksha**  |
+
+*\*Note: Tasks originally assigned to partner were completed by Diksha Jangam to ensure project functionality and submission eligibility.*
+
+---
+
+## 4. Technical Specifications
+* **Language:** Python
+* **Simulator:** Webots
+* **Grid Resolution:** 0.1m/pixel 
+* **Map Dimensions:** 50m x 50m (500x500 Grid) 
+* **Visualization:** Custom `visualize_map` overlay using Webots Display node (Vectorized Numpy Operations).
+
+## 5. Visuals
+*(Note: Images of the occupancy grid and simulation environment are generated via the `visualize_map` function included in the controller code).*
