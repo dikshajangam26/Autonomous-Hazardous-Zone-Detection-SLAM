@@ -79,3 +79,13 @@ The visualization is divided into four critical quadrants as seen above:
 4.  **Current Logic State (Bottom-Right):** Displays the active state of the robot's decision tree, cycling between **Forward**, **Turning**, **Worker Detected**, and **Emergency!** to provide instant feedback on safety triggers.
 
 *The visualization is generated using the custom `visualize_map` function with vectorised Numpy operations to ensure real-time performance.*
+
+## 7. Setup & Usage
+1.  **Clone Repository:** Ensure folder structure is maintained.
+2.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+3.  **Webots Setup:** Open the `.wbt` world file located in the `worlds` directory.
+4.  **Run Controller:** The Python controller will automatically initialize sensors and open the CSV log file.
+5.  **Launch Dashboard:** The dashboard script will auto-launch via subprocess or can be run manually to visualize telemetry.
