@@ -60,7 +60,7 @@ The following log details the execution of project tasks as verified by the proj
 
 ## 5. Visuals
 
-**Video 1: Real-Time SLAM & Occupancy Grid Generation**
+**Video: Real-Time SLAM & Occupancy Grid Generation**
 https://github.com/user-attachments/assets/c350d9db-5f06-47eb-bbdd-42564ea6c62c
 
 This screen recording demonstrates the custom mapping engine in action.
