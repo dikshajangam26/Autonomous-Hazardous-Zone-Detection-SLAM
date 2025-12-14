@@ -1,0 +1,25 @@
+# --- Python Ignored Files ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Webots Ignored Files ---
+# Webots specific project temp files
+.wb_proj
+*.wbt~
+*.wbt.bak
+
+# --- System Ignored Files ---
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Project Specific ---
+# Ignore large data logs if you don't want them on GitHub
+# (Uncomment the line below if your CSV gets huge, otherwise keep it to show example data)
+# robot_data.csv
