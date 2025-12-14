@@ -30,7 +30,7 @@ The architecture was designed and implemented end-to-end by Diksha Jangam, encom
     * *Human Worker:* Visual detection + LiDAR proximity < 3.0m.
 * **State Machine:** Implemented priority-based logic with hysteresis:
     * *Worker Wait:* 5-second latch to prevent decision flickering.
-    * *U-Turn:* 2-second commitment timer for navigation stability.
+    * *Turn:* 2-second commitment timer for navigation stability.
 
 ---
 
