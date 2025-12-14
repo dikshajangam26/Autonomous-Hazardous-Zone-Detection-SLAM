@@ -8,13 +8,12 @@ import numpy as np
 CSV_FILE = 'robot_data.csv'
 REFRESH_INTERVAL_MS = 500  # Faster refresh (0.5s) to catch fast events
 
-# Setup the figure structure
+
 plt.style.use('ggplot')
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 fig.suptitle('Real-Time Robot Telemetry', fontsize=16)
 
 def animate(i):
-    # 1. Check if data exists
     if not os.path.exists(CSV_FILE) or os.stat(CSV_FILE).st_size == 0:
         return 
 
@@ -52,23 +51,19 @@ def animate(i):
         min_dist = df[['Lidar_Front', 'Lidar_Left', 'Lidar_Right']].min(axis=1).fillna(20.0)
         hazard_score = (3.0 - min_dist).clip(lower=0)
         
-        # 1. Add label='Current Hazard' to the red line
         ax3.fill_between(df['Time_s'], hazard_score, color='red', alpha=0.6)
         ax3.plot(df['Time_s'], hazard_score, color='darkred', label='Current Hazard')
         
         ax3.set_title("Proximity Hazard Level")
         ax3.set_ylabel("Danger Level")
         
-        # Dynamic Y-Limit
         current_peak = hazard_score.max() if not hazard_score.empty else 0.0
         if np.isnan(current_peak): current_peak = 0.0
         new_limit = max(3.5, current_peak * 1.1)
         ax3.set_ylim([0, new_limit])
         
-        # 2. Add label='Turn Threshold' to the yellow line
-        ax3.axhline(y=2.6, color='yellow', linestyle='--', linewidth=2, label='Turn Threshold')
         
-        # 3. FORCE LEGEND VISIBILITY
+        ax3.axhline(y=2.6, color='yellow', linestyle='--', linewidth=2, label='Turn Threshold')
         ax3.legend(loc='upper right', facecolor='white', framealpha=1.0, shadow=True)
 
         
@@ -97,7 +92,7 @@ def animate(i):
             box_color = "white"
             text_color = "black"
         
-        # Draw the box
+        
         ax4.text(0.5, 0.5, display_state, fontsize=22, weight='bold',
                  ha='center', va='center', color=text_color,
                  bbox=dict(boxstyle="round,pad=1", fc=box_color, ec="black"))
@@ -107,7 +102,8 @@ def animate(i):
     except Exception as e:
         print(f"Plotting Error: {e}")
 
-# 3. Start Animation (Faster Refresh)
+
 ani = FuncAnimation(fig, animate, interval=REFRESH_INTERVAL_MS, cache_frame_data=False)
 plt.tight_layout()
 plt.show()
+
