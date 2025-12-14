@@ -11,7 +11,7 @@ This project implements an autonomous navigation and safety system for construct
 The architecture was designed and implemented end-to-end by Diksha Jangam, encompassing the following core components:
 
 ### A. Simulation Environment
-* **World Design:** Custom "construction-site" environment featuring uneven terrain, static barriers, and dynamic worker models to simulate realistic hazards.
+* **World Design:** Custom "construction-site" environment featuring uneven terrain, static barriers, and dynamic worker models and forklifts to simulate realistic hazards.
 * **Robot Configuration:** Pioneer 3-DX configured with differential-drive kinematics.
 * **Sensor Suite:**
     * **LiDAR:** Sick LMS 291 (mounted at 0.13m x, 0.24m z) for mapping.
