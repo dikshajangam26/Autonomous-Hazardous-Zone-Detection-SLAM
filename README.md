@@ -35,20 +35,20 @@ The architecture was designed and implemented end-to-end by Diksha Jangam, encom
 ---
 
 ## 3. Contribution Log & Work Breakdown
+
 The following log details the execution of project tasks as verified by the project commit history and source code authorship.
 
 | Module | Task Description | Assigned To | Implemented By |
 | :--- | :--- | :--- | :--- |
-| **Env Setup** | Webots installation, World Creation, Robot Model | Diksha | **Diksha**  |
-| **Sensors** | Sensor Selection, Mounting, Noise Calibration | Diksha | **Diksha**  |
-| **SLAM Core** | Odometry, Mapping Algorithm, Occupancy Grid | Diksha | **Diksha**  |
-| **Fusion** | IMU + Odometry Data Fusion (Drift Handling) | Shared | **Diksha**  |
-| **Safety Logic** | Hazard Signatures (Worker vs Wall) | Smrithi* | **Diksha**  |
-| **Detection** | Visual Detection Integration & State Machine | Smrithi* | **Diksha**  |
-| **Docs** | Final Report, Documentation, & Visualization | Shared | **Diksha**  |
+| **Env Setup** | Webots installation, World Creation, Robot Model | Diksha | **Diksha** |
+| **Sensors** | Sensor Selection, Mounting, Noise Calibration | Diksha | **Diksha** |
+| **SLAM Core** | Odometry, Mapping Algorithm, Occupancy Grid | Diksha | **Diksha** |
+| **Fusion** | IMU + Odometry Data Fusion (Drift Handling) | Shared | **Diksha** |
+| **Safety Logic** | Hazard Signatures (Worker vs Wall) | Smrithi* | **Diksha** |
+| **Detection** | Visual Detection Integration & State Machine | Smrithi* | **Diksha** |
+| **Docs** | Final Report, Documentation, & Visualization | Shared | **Diksha** |
 
-*\*Note: Tasks originally assigned to partner were completed by Diksha Jangam to ensure project functionality and submission eligibility.*
-
+> ***Note:** Tasks originally assigned to partner were completed by Diksha Jangam to ensure project functionality and submission eligibility.*
 ---
 
 ## 4. Technical Specifications
