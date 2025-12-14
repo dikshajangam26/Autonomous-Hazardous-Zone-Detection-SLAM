@@ -59,4 +59,13 @@ The following log details the execution of project tasks as verified by the proj
 * **Visualization:** Custom `visualize_map` overlay using Webots Display node (Vectorized Numpy Operations).
 
 ## 5. Visuals
-*(Note: Images of the occupancy grid and simulation environment are generated via the `visualize_map` function included in the controller code).*
+
+**Video 1: Real-Time SLAM & Occupancy Grid Generation**
+https://github.com/user-attachments/assets/c350d9db-5f06-47eb-bbdd-42564ea6c62c
+
+This screen recording demonstrates the custom mapping engine in action.
+* **Grey Area:** Unexplored/Unknown space (Probability = 0.5).
+* **White Area:** Confirmed Free Space (Safety Zone) cleared by the robot's movement.
+* **Black Dots:** Detected Static Obstacles (Walls/Barriers) identified by LiDAR.
+
+*The visualization is generated using the custom `visualize_map` function with vectorised Numpy operations to ensure real-time performance.*
